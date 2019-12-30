@@ -4,5 +4,4 @@ services:
 
 script:
   - docker build -t samos123/docker-toolbox:latest .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push samos123/docker-toolbox:latest
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin; docker push samos123/docker-toolbox:latest
