@@ -6,7 +6,7 @@ containers but won't be able to download packages.
 ## Example
 For example, run it on a docker host with following commands:
 ```
-docker run --rm --network host --privileged -it gcr.io/gsam-123/docker-toolbox /bin/bash
+docker run --rm --network host --privileged -it samos123/docker-toolbox /bin/bash
 ip a
 tcpdump -i eth0
 ```
