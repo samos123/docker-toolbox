@@ -5,3 +5,4 @@ RUN apt-get update && apt-get install -y tcpdump iputils-ping iputils-arping \
     && rm -rf /var/lib/apt/lists/*
 
 ADD https://github.com/samos123/docker-veth/raw/master/docker-veth.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-veth.sh
