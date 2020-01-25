@@ -11,3 +11,10 @@ docker run --rm --network host --privileged -it samos123/docker-toolbox /bin/bas
 ip a
 tcpdump -i eth0
 ```
+
+You can also run this image on K8s clusters with the following pod definition:
+```
+kubectl apply -f https://raw.githubusercontent.com/samos123/docker-toolbox/master/debug-pod.yaml
+kubectl exec debug-pod -t -i bash
+ip a
+```
