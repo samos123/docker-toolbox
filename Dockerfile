@@ -36,8 +36,13 @@ RUN apt-get update && apt-get install -y tcpdump iputils-ping iputils-arping \
         google-cloud-sdk-cbt=${CLOUD_SDK_VERSION}-0 \
         kubectl && \
     gcloud --version && \
-    docker --version && kubectl version --client \
-    && rm -rf /var/lib/apt/lists/*
+    docker --version && kubectl version --client && \
+    export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s` && \
+    echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | tee /etc/apt/sources.list.d/gcsfuse.list && \
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+    apt-get update && \
+    apt-get install gcsfuse && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install pyopenssl
 RUN git config --system credential.'https://source.developers.google.com'.helper gcloud.sh
